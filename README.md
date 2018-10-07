@@ -1,0 +1,2 @@
+# Uniwersalne Techniki Programowania
+## Zadanka 👌🏻☢️
