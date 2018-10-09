@@ -1,0 +1,192 @@
+Name	Capital	Population	Flag
+Afghanistan	Kabul	33000	af
+Albania	Tirana	2935	al
+Algeria	Algiers	42000	dz
+Andorra	Andorra la Vella	77	ad
+Angola	Luanda	30770	ao
+Antigua and Barbuda	Saint John's	82	ag
+Argentina	Buenos Aires	43847	ar
+Armenia	Yerevan	3044	am
+Australia	Canberra	23401	au
+Austria	Vienna	8623	at
+Azerbaijan	Baku	9862	az
+The Bahamas	Nassau	400	bs
+Bahrain	Manama	1443	bh
+Bangladesh	Dhaka	162951	bd
+Barbados	Bridgetown	277	bb
+Belarus	Minsk	9500	by
+Belgium	Brussels	10839	be
+Belize	Belmopan	382	bz
+Benin	Porto-Novo	11558	bj
+Bhutan	Thimphu	804	bt
+Bolivia 	La Paz (administrative); Sucre (judicial)	10000	bo
+Bosnia and Herzegovina	Sarajevo	3500	ba
+Botswana	Gaborone	2377	bw
+Brazil	Brasilia	210350	br
+Brunei	Bandar Seri Begawan	434	bn
+Bulgaria	Sofia	7050	bg
+Burkina Faso	Ouagadougou	19800	bf
+Burundi	Bujumbura	12133	bi
+Cambodia	Phnom Penh	15762	kh
+Cameroon	Yaounde	6420	cm
+Canada	Ottawa	36950	ca
+Cape Verde	Praia	620	cv
+Central African Republic	Bangui	4737	cf
+Chad	N'Djamena	15353	td
+Chile	Santiago	18197	cl
+China	Beijing	1415045	cn
+Colombia	Bogota	49464	co
+Comoros	Moroni	832	km
+Congo, Democratic Republic of the	Kinshasa	2159	cd
+Costa Rica	San Jose	4953	cr
+Croatia	Zagreb	4164	hr
+Cuba	Havana	11489	cu
+Cyprus	Nicosia	1189	cy
+Czech Republic	Prague	10500	cz
+Denmark	Copenhagen	5754	dk
+Djibouti	Djibouti	971	dj
+Dominica	Roseau	74	dm
+Dominican Republic	Santo Domingo	10882	do
+East Timor (Timor-Leste)	Dili	892	tl
+Ecuador	Quito	16853	ec
+Egypt	Cairo	99375	eg
+El Salvador	San Salvador	6411	sv
+Eritrea	Asmara	5187	er
+Estonia	Tallinn	1306	ee
+Ethiopia	Addis Ababa	107543	et
+Fiji	Suva	912	fj
+Finland	Helsinki	5542	fi
+France	Paris	65223	fr
+Gabon	Libreville	2067	ga
+The Gambia	Banjul	2163	gm
+Georgia	Tbilisi	3907	ge
+Germany	Berlin	82293	de
+Ghana	Accra	29463	gh
+Greece	Athens	11142	gr
+Grenada	Saint George's	108	gd
+Guatemala	Guatemala City	17245	gt
+Guinea	Conakry	13052	gn
+Guinea-Bissau	Bissau	1907	gw
+Guyana	Georgetown	782	gy
+Haiti	Port-au-Prince	11112	ht
+Honduras	Tegucigalpa	9417	hn
+Hungary	Budapest	9688	hu
+Iceland	Reykjavik	337	is
+India	New Delhi	1354051	in
+Indonesia	Jakarta	266793	id
+Iran	Tehran	82011	ir
+Iraq	Baghdad	39339	iq
+Ireland	Dublin	4803	ie
+Israel	Jerusalem	8452	il
+Italy	Rome	59290	it
+Jamaica	Kingston	2898	jm
+Japan	Tokyo	127185	jp
+Jordan	Amman	9903	jo
+Kazakhstan	Astana	18403	kz
+Kenya	Nairobi	50950	ke
+Kiribati	Tarawa Atoll	118	ki
+North Korea	Pyongyang	25610	kp
+South Korea	Seoul	51164	kr
+Kuwait	Kuwait City	1546	kw
+Kyrgyzstan	Bishkek	6132	kg
+Laos	Vientiane	6961	la
+Latvia	Riga	1929	lv
+Lebanon	Beirut	6093	lb
+Lesotho	Maseru	1234	ls
+Liberia	Monrovia	4006	lr
+Libya	Tripoli	6470	ly
+Liechtenstein	Vaduz	38	li
+Lithuania	Vilnius	2876	lt
+Luxembourg	Luxembourg	590	lu
+Macedonia	Skopje	1245	mk
+Madagascar	Antananarivo	250	mg
+Malawi	Lilongwe	26	mw
+Malaysia	Kuala Lumpur	23	my
+Maldives	Male	45	mv
+Mali	Bamako	5678	ml
+Malta	Valletta	1876	mt
+Marshall Islands	Majuro	56	mh
+Mauritania	Nouakchott	4509	mr
+Mauritius	Port Louis	88	mu
+Mexico	Mexico City	130759	mx
+Micronesia, Federated States of	Palikir	106	fm
+Moldova	Chisinau	4041	md
+Monaco	Monaco	38	mc
+Mongolia	Ulaanbaatar	3121	mn
+Montenegro	Podgorica	629	me
+Morocco	Rabat	36191	ma
+Mozambique	Maputo	30528	mz
+Myanmar (Burma)	Rangoon (Yangon); Naypyidaw or Nay Pyi Taw (administrative)	53855	mm
+Namibia	Windhoek	2587	na
+Nauru	no official capital; government offices in Yaren District	11	nr
+Nepal	Kathmandu	29624	np
+Netherlands	Amsterdam; The Hague (seat of government)	17084	nl
+New Zealand	Wellington	4749	nz
+Nicaragua	Managua	1455	ni
+Niger	Niamey	8263	ne
+Nigeria	Abuja	4522	ng
+Norway	Oslo	2466	no
+Oman	Muscat	5643	om
+Pakistan	Islamabad	17894	pk
+Palau	Melekeok	8753	pw
+Panama	Panama City	10034	pa
+Papua New Guinea	Port Moresby	4563	pg
+Paraguay	Asuncion	6722	py
+Peru	Lima	3599	pe
+Philippines	Manila	106512	ph
+Poland	Warsaw	38500	pl
+Portugal	Lisbon	10291	pt
+Qatar	Doha	2694	qa
+Romania	Bucharest	19580	ro
+Russia	Moscow	143964	ru
+Rwanda	Kigali	12641	rw
+Saint Kitts and Nevis	Basseterre	55	kn
+Saint Lucia	Castries	179	lc
+Saint Vincent and the Grenadines	Kingstown	187	vc
+Samoa	Apia	197	ws
+San Marino	San Marino	33	sm
+Sao Tome and Principe	Sao Tome	208	st
+Saudi Arabia	Riyadh	33554	sa
+Senegal	Dakar	16294	sn
+Serbia	Belgrade	8762	rs
+Seychelles	Victoria	95	sc
+Sierra Leone	Freetown	7719	sl
+Singapore	Singapore	5791	sg
+Slovakia	Bratislava	5488	sk
+Slovenia	Ljubljana	2081	si
+Solomon Islands	Honiara	623	sb
+Somalia	Mogadishu	15181	so
+South Africa	Pretoria (administrative); Cape Town (legislative); Bloemfontein (judiciary)	57398	za
+Spain	Madrid	46599	es
+Sri Lanka	Colombo; Sri Jayewardenepura Kotte (legislative)	20950	lk
+Sudan	Khartoum	41511	sd
+Suriname	Paramaribo	568	sr
+Swaziland	Mbabane	1391	sz
+Sweden	Stockholm	9982	se
+Switzerland	Bern	8544	ch
+Syria	Damascus	18284	sy
+Taiwan	Taipei	23694	tw
+Tajikistan	Dushanbe	9107	tj
+Tanzania	Dar es Salaam; Dodoma (legislative)	59109	tz
+Thailand	Bangkok	69183	th
+Togo	Lome	7990	tg
+Tonga	Nuku'alofa	109	to
+Trinidad and Tobago	Port-of-Spain	1372	tt
+Tunisia	Tunis	11659	tn
+Turkey	Ankara	81619	tr
+Turkmenistan	Ashgabat	5581	tm
+Tuvalu	Vaiaku village, Funafuti province	11	tv
+Uganda	Kampala	44270	ug
+Ukraine	Kyiv	44009	ua
+United Arab Emirates	Abu Dhabi	9541	ae
+United Kingdom	London	66574	gb
+United States of America	Washington, D.C.	326766	us
+Uruguay	Montevideo	3469	uy
+Uzbekistan	Tashkent	32364	uz
+Vanuatu	Port-Vila	282	vu
+Vatican City (Holy See)	Vatican City	29	va
+Venezuela	Caracas	32281	ve
+Vietnam	Hanoi	96391	vn
+Yemen	Sanaa	28915	ye
+Zambia	Lusaka	17892	zm
+Zimbabwe	Harare	16913	zw
