@@ -1,2 +1,8 @@
 .idea
 .DS_Store
+.gitignore
+SDKP
+tmp
+bin
+out
+IntelliJ

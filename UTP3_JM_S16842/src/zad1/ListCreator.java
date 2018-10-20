@@ -29,7 +29,7 @@ public class ListCreator<S> {
 		return this;
 	}
 
-	public <T> List<T> mapEvery(Function<S, T> m){
+	public <T> List mapEvery(Function<S, T> m){
 
 		List<T> out = new ArrayList<>();
 
