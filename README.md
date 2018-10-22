@@ -8,8 +8,11 @@
 + [Zadanie 2](#zadanie-2---generics)
 + [Zadanie 3](#zadanie-3---ceny-przelotów---lambda-1)
 + [Zadanie 4](#zadanie-4---ceny-przelotów---lambda-2)
-+ [Zadanie 5](#zadanie-4---ceny-przelotów---lambda-2)
-+ [Zadanie 6](#zadanie-4---ceny-przelotów---lambda-2)
++ [Zadanie 5](#zadanie-5---klasa-maybe)
++ [Zadanie 6](#zadanie-6---lambda-wyrażenia-dla-niefunkcyjnych-interfejsów)
++ [Zadanie 7](#zadanie-7---lambda-wyrażenia---kompozycja-funkcji)
++ [Zadanie 8](#zadanie-8---przekazywanie-wyjątków-kontrolowanych-z-lambda-wyrażeń-do-obsługi-w-bloku-otaczającym-lambda)
++ [Zadanie 9](#zadanie-9---dodatkowe-operacje-na-listach)
 
 ---
 
@@ -473,7 +476,7 @@ Cars:- Fiat: 15, Ford: 20- Opel: 8, Mitsubishi: 10
 
 Uwaga: w klasie InputConverter musi występować tylko jedna metoda o nazwie convertBy (czyli w tym zadaniu nie dopuszczamy przeciążania metody convertBy).
 
-## Zadanie 8 - Przekazywanie wyjątków kontrolowanych z lambda-wyrażeń do obsługi w bloku otaczającym lambda.
+## Zadanie 8 - Przekazywanie wyjątków kontrolowanych z lambda-wyrażeń do obsługi w bloku otaczającym lambda
 
 W kontekście:
 
