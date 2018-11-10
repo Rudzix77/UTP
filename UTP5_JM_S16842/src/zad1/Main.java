@@ -59,7 +59,7 @@ public class Main {
 
       List<Integer> list = new ArrayList<>();
 
-      Matcher m = Pattern.compile("(\\d+)").matcher(src);
+      Matcher m = Pattern.compile("[-]?(\\d+)").matcher(src);
 
       while(m.find()){
         list.add(Integer.parseInt(m.group()));

@@ -1,106 +1,11 @@
 package zad3;
 
 import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Function;
+import java.util.List;
+import java.util.function.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
-import javax.management.ImmutableDescriptor;
-
-public class XList<T> extends LinkedList<T> {
-
-	public XList(Collection<T> c) {
-		addAll(c);
-	}
-
-	public XList(T... t) {
-		addAll(Arrays.asList(t));
-	}
-
-	public static <T> XList<T> of(T... t) {
-		return new XList<T>(t);
-	}
-
-	public static <T> XList<T> of(Collection<T> c) {
-		return new XList<T>(c);
-	}
-
-	public static XList<String> charsOf(String string) {
-		String[] tab = new String[string.length()];
-		for (int a = 0; a < string.length(); a++) {
-			tab[a] = Character.toString(string.charAt(a));
-		}
-		return new XList<>(tab);
-	}
-
-	public static XList<String> tokensOf(String string) {
-		String[] tab = string.split(" ");
-		return new XList<>(tab);
-	}
-
-	public static XList<String> tokensOf(String string, String string2) {
-		String[] tab = string.split(string2);
-		return new XList<>(tab);
-	}
-
-	public XList<T> union(Collection<T> c) {
-		XList<T> list = new XList<T>(this);
-		list.addAll(c);
-		return list;
-	}
-
-	public XList<T> union(T... t) {
-		XList<T> list = new XList<T>(this);
-		for (T element : t) {
-			list.add(element);
-		}
-		return list;
-	}
-
-	public XList<T> diff(Collection<T> c) {
-		XList<T> list = new XList<T>(this);
-		list.removeAll(c);
-		return list;
-	}
-
-	public XList<T> unique() {
-		return new XList<T>(stream().distinct().collect(Collectors.toList()));
-	}
-
-	public XList<XList<T>> combine() {
-		return new XList(this);
-	}
-
-	public <R> XList<R> collect(Function<T, R> function) {
-		XList<R> list = new XList<R>();
-		for (T element : this) {
-			//list.add(function.apply(element));
-		}
-		return list;
-	}
-
-	public String join(String string) {
-		String elements = "";
-		for (T s : this) {
-			elements += string + s;
-		}
-		return elements;
-	}
-
-	public String join(){
-		return join("");
-	}
-
-	public void forEachWithIndex(BiConsumer<T, Integer> bc) {
-		for(int a = 0; a < this.size(); a++) {
-			bc.accept(this.get(a), a);
-		}
-	}
-
-}
-
-/*
 public class XList<T> extends ArrayList<T> {
 
 	public XList(T... t){
@@ -174,11 +79,7 @@ public class XList<T> extends ArrayList<T> {
 	}
 
 	public XList<T> unique() {
-		XList<T> list = new XList(this);
-
-		list.stream().distinct().collect(Collectors.toList());
-
-		return list;
+		return new XList(this.stream().distinct().collect(Collectors.toList()));
 	}
 
 
@@ -261,4 +162,4 @@ public class XList<T> extends ArrayList<T> {
 		return Arrays.toString(super.toArray());
 	}
 }
-*/
+
