@@ -31,9 +31,9 @@ public class Main {
 
 		System.out.println();
 
-		System.out.print(String.format("Usuwam definicję %s numer %d] -> ", def, 1));
+		System.out.print(String.format("Usuwam definicję %s numer %d -> ", def, 1));
 		System.out.println(d.delete(def, 1) ? "Skasowano" : "Wybrana definicja nie istnieje");
-		System.out.print(String.format("Usuwam definicję %s numer %d] -> ", def, 5));
+		System.out.print(String.format("Usuwam definicję %s numer %d -> ", def, 5));
 		System.out.println(d.delete(def, 5) ? "Skasowano" : "Wybrana definicja nie istnieje");
 
 		System.out.println();
@@ -64,7 +64,7 @@ public class Main {
 		System.out.println();
 
 		System.out.println("Po operacji save() - ponowny odczyt");
-		d.lookup(def).forEach(System.out::println);
+		d2.lookup(def).forEach(System.out::println);
 
 
 	}

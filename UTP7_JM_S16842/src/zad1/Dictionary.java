@@ -33,7 +33,10 @@ public class Dictionary {
 							definitions.put(p[0], new ArrayList<>());
 						}
 
-						definitions.get(p[0]).add(p[1]);
+						if(!definitions.get(p[0]).contains(p[1])){
+							definitions.get(p[0]).add(p[1]);
+						}
+
 					}
 				}
 			}
