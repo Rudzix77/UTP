@@ -114,7 +114,6 @@ public class Dictionary {
 			e.printStackTrace();
 		}
 
-		//, Charset.forName("UTF-8")
 	}
 
 	public List<String> getSorted(String key){
