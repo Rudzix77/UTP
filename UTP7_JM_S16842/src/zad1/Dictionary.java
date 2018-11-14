@@ -2,9 +2,7 @@ package zad1;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -29,9 +27,8 @@ public class Dictionary {
 					String[] p = line.split("=");
 
 					if(p.length == 2){
-						if(!definitions.containsKey(p[0])){
-							definitions.put(p[0], new ArrayList<>());
-						}
+
+						definitions.putIfAbsent(p[0], new ArrayList());
 
 						if(!definitions.get(p[0]).contains(p[1])){
 							definitions.get(p[0]).add(p[1]);
@@ -45,7 +42,7 @@ public class Dictionary {
 		}
 	}
 
-	public List<String> lookup(String key){
+	public List<String> lookup(String key) throws Exception{
 		List<String> list = getSorted(key).stream().collect(Collectors.toList());
 
 		IntStream.range(0, list.size()).boxed().forEach(n -> {
@@ -56,9 +53,8 @@ public class Dictionary {
 	}
 
 	public boolean add(String key, String value){
-		if(!definitions.containsKey(key)){
-			definitions.put(value, new ArrayList<>());
-		}
+
+		definitions.putIfAbsent(value, new ArrayList());
 
 		if(definitions.get(key).contains(value)){
 			return false;
@@ -69,7 +65,7 @@ public class Dictionary {
 		return true;
 	}
 
-	public boolean delete(String key, int num){
+	public boolean delete(String key, int num) throws Exception{
 
 		if(definitions.containsKey(key)){
 			if(num-1 < definitions.get(key).size()){
@@ -83,6 +79,7 @@ public class Dictionary {
 	}
 
 	public boolean update(String key, String value, String value2){
+
 		if(definitions.containsKey(key)){
 
 			List<String> list = definitions.get(key);
@@ -97,7 +94,7 @@ public class Dictionary {
 		return false;
 	}
 
-	public void save() {
+	public boolean save() {
 		String out = "";
 
 		for(Map.Entry<String, List<String>> e : definitions.entrySet()){
@@ -110,20 +107,20 @@ public class Dictionary {
 			}
 		}
 
-
 		try{
 			Files.write(Paths.get(path), out.getBytes());
 		}catch (IOException e){
-			e.printStackTrace();
+			return false;
 		}
+
+		return true;
 
 	}
 
-	public List<String> getSorted(String key){
-		definitions.get(key).sort(Comparator.naturalOrder());
+	public List<String> getSorted(String key) throws Exception{
+		definitions.getOrDefault(key,new ArrayList()).sort(Comparator.naturalOrder());
 
 		return definitions.get(key);
 	}
-
 
 }

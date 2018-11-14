@@ -1,7 +1,7 @@
 package zad1;
 
 public class Main {
-	public static void main(String[] args){
+	public static void main(String[] args) throws Exception{
 
 		String path = System.getProperty("user.home") + "/dictionary.txt";
 
@@ -11,6 +11,7 @@ public class Main {
 		d.definitions.entrySet().forEach(System.out::println);
 		System.out.println();
 
+
 		for(String s : new String[]{"lol", "bacca"}){
 			System.out.println("Definicje dla: " + s);
 			d.lookup(s).forEach(System.out::println);
@@ -19,7 +20,7 @@ public class Main {
 
 		String def = "bacca";
 
-		for(String s : new String[]{"stary", "ziomo", "algorytm", "koles"}){
+		for(String s : new String[]{"stary", "ziomo", "algorytm"}){
 			System.out.print(String.format("Dodaje definicje [%s - %s] -> ", def, s));
 			System.out.println(d.add(def, s) ? "Dodano" : "Juz wystąpiła");
 		}
@@ -57,7 +58,7 @@ public class Main {
 
 		System.out.println();
 
-		d.save();
+		System.out.println(d.save() ? "Poprawnie zapisano zawartość słownika do pliku" : "Nie udało się zapisać zawartości słownika do pliku!");
 
 		Dictionary d2 = new Dictionary(path);
 

@@ -1,4 +1,5 @@
-lol=lolek
-lol=loliz
+lol=śmiech
+lol=wyraz zabawny
 lol=😂
 bacca=koles
+bacca=👌🏻
