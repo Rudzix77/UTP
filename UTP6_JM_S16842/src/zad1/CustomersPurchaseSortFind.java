@@ -9,10 +9,7 @@ package zad1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class CustomersPurchaseSortFind {
 
@@ -46,6 +43,7 @@ public class CustomersPurchaseSortFind {
 				return c;
 			}).forEach(System.out::println);
 		}else if(action.equals("Koszty")){
+
 			list.stream().sorted((a, b) -> {
 
 				float c = (b.amount*b.price) - (a.amount*a.price);
@@ -67,5 +65,4 @@ public class CustomersPurchaseSortFind {
 		list.stream().filter(e -> e.id == Integer.parseInt(id.substring(1))).forEach(System.out::println);
 		System.out.println();
 	}
-
 }
