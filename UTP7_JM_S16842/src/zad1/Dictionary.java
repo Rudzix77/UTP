@@ -1,16 +1,16 @@
 package zad1;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+
 
 public class Dictionary {
 
-	Map<String, List<String>> definitions = new LinkedHashMap();
+	Map<String, TreeSet<String>> definitions = new LinkedHashMap();
 	String path;
 
 	public Dictionary(String path){
@@ -25,15 +25,11 @@ public class Dictionary {
 				if(line.contains("=")){
 
 					String[] p = line.split("=");
+						String key = p[0].trim();
+						String value = p[1].trim();
 
 					if(p.length == 2){
-
-						definitions.putIfAbsent(p[0], new ArrayList());
-
-						if(!definitions.get(p[0]).contains(p[1])){
-							definitions.get(p[0]).add(p[1]);
-						}
-
+						add(key, value);
 					}
 				}
 			}
@@ -42,68 +38,84 @@ public class Dictionary {
 		}
 	}
 
-	public List<String> lookup(String key) throws Exception{
-		List<String> list = getSorted(key).stream().collect(Collectors.toList());
-
-		IntStream.range(0, list.size()).boxed().forEach(n -> {
-			list.set(n, (n+1) + ". " + list.get(n));
-		});
-
-		return list;
-	}
-
-	public boolean add(String key, String value){
-
-		definitions.putIfAbsent(value, new ArrayList());
-
-		if(definitions.get(key).contains(value)){
+	private boolean validate(String key) throws NotFoundException{
+		if(!definitions.containsKey(key)){
 			return false;
 		}
-
-		definitions.get(key).add(value);
 
 		return true;
 	}
 
-	public boolean delete(String key, int num) throws Exception{
+	public List<String> lookup(String key) throws NotFoundException{
 
-		if(definitions.containsKey(key)){
-			if(num-1 < definitions.get(key).size()){
-				getSorted(key).remove(num-1);
+		if(validate(key)){
+			List list = new ArrayList();
 
-				return true;
-			}
+			definitions.get(key).iterator().forEachRemaining(e -> list.add((list.size()+1) + ". " + e));
+
+			return list;
+		}else{
+			throw new NotFoundException();
 		}
-
-		return false;
 	}
 
-	public boolean update(String key, String value, String value2){
+	public void add(String key, String value){
+		definitions.computeIfAbsent(key, e -> new TreeSet()).add(value);
+	}
 
-		if(definitions.containsKey(key)){
+	public void delete(String key, int n) throws NotFoundException {
 
-			List<String> list = definitions.get(key);
+		if(validate(key)){
+			Set set = definitions.get(key);
+			Iterator it = set.iterator();
+			int i = 1;
 
-			if(list.contains(value)){
-				list.set(list.indexOf(value), value2);
+			while(it.hasNext()){
 
-				return true;
+				it.next();
+
+				if(i++ == n){
+					it.remove();
+				}
 			}
+
+			if(set.isEmpty()){
+				definitions.remove(key);
+			}
+
+		}else{
+			throw new NotFoundException();
+		}
+	}
+
+	public void update(String key, String value, String value2) throws NotFoundException {
+
+		if(validate(key)){
+			Set set = definitions.get(key);
+
+			set.removeIf(e -> value.equals(e));
+
+			if(set.size() == 0){
+				definitions.remove(set);
+			}
+
+			add(key, value2);
+		}else{
+			throw new NotFoundException();
 		}
 
-		return false;
 	}
 
 	public boolean save() {
 		String out = "";
 
-		for(Map.Entry<String, List<String>> e : definitions.entrySet()){
+		for(Map.Entry<String, TreeSet<String>> e : definitions.entrySet()){
 
 			String key = e.getKey();
-			List<String> values = e.getValue();
+			Set<String> values = e.getValue();
 
 			for(String v : values){
-				out += key + "=" + v + "\n";
+				out += key + " = " + v + "\n";
 			}
 		}
 
@@ -117,10 +129,6 @@ public class Dictionary {
 
 	}
 
-	public List<String> getSorted(String key) throws Exception{
-		definitions.getOrDefault(key,new ArrayList()).sort(Comparator.naturalOrder());
-
-		return definitions.get(key);
-	}
-
 }
+
+class NotFoundException extends Exception{}

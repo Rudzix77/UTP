@@ -1,5 +1,5 @@
-lol=śmiech
-lol=wyraz zabawny
-lol=😂
-bacca=koles
-bacca=👌🏻
+lol = śmiech
+lol = wyraz zabawny
+lol = 😂
+bacca = koleś
+bacca = 👌
