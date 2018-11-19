@@ -38,7 +38,7 @@ public class Dictionary {
 		}
 	}
 
-	private boolean validate(String key) throws NotFoundException{
+	private boolean validate(String key){
 		if(!definitions.containsKey(key)){
 			return false;
 		}

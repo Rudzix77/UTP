@@ -1,5 +1,10 @@
-lol = śmiech
+lol = element nowomowy
 lol = wyraz zabawny
+lol = śmiech
 lol = 😂
-bacca = koleś
+bacca = stary
+bacca = szprycer
 bacca = 👌
+zamek = budowla
+zamek = suwak
+kapelusz = nakrycie głowy

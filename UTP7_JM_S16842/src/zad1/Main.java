@@ -1,6 +1,7 @@
 package zad1;
 
-import com.sun.tools.corba.se.idl.constExpr.Not;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Main {
 	public static void main(String[] args) {
@@ -9,10 +10,12 @@ public class Main {
 
 		Dictionary d = new Dictionary(path);
 
+		Iterator<String> it = d.definitions.keySet().iterator();
+
 		try{
-			d.lookup("los");
+			d.lookup(it.next());
 		}catch (NotFoundException e){
-			System.out.println("KURWA");
+			System.out.println("Wybrany klucz nie istnieje");
 		}
 
 
@@ -21,7 +24,7 @@ public class Main {
 		System.out.println();
 
 
-		for(String s : new String[]{"lol", "bacca"}){
+		for(String s : new String[]{it.next(), it.next()}){
 			System.out.println("Definicje dla: " + s);
 
 			try{
@@ -33,9 +36,9 @@ public class Main {
 			System.out.println();
 		}
 
-		String def = "bacca";
+		String def = it.next();
 
-		for(String s : new String[]{"stary", "ziomo", "algorytm"}){
+		for(String s : new String[]{"stary", "ziomo", "przyjaciel"}){
 			System.out.println(String.format("Dodaje definicje [%s - %s]", def, s));
 			d.add(def, s);
 		}
@@ -94,7 +97,6 @@ public class Main {
 			System.out.println("Wybrany klucz nie istnieje");
 		}
 
-
 		System.out.println();
 
 		System.out.println(def + " po operacjach update()");
@@ -107,7 +109,7 @@ public class Main {
 
 		System.out.println();
 
-		//System.out.println(d.save() ? "Poprawnie zapisano zawartość słownika do pliku" : "Nie udało się zapisać zawartości słownika do pliku!");
+		System.out.println(d.save() ? "Poprawnie zapisano zawartość słownika do pliku" : "Nie udało się zapisać zawartości słownika do pliku!");
 
 		Dictionary d2 = new Dictionary(path);
 
