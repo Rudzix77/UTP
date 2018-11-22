@@ -19,7 +19,7 @@ public class ProgLang {
 								 (p, c) -> c, LinkedHashMap::new));
 	}
 
-	public Map getLangsMap() {
+	public Map<String, List<String>> getLangsMap() {
 		return map;
 	}
 
@@ -28,20 +28,17 @@ public class ProgLang {
 		Map<String, List<String>> res = new LinkedHashMap();
 
 		map.entrySet().stream().forEach(e -> {
-			e.getValue().forEach(v -> {
-				res.computeIfAbsent(v, x -> new ArrayList()).add(e.getKey());
-			});
+			e.getValue().forEach(v -> res.computeIfAbsent(v, x -> new ArrayList()).add(e.getKey()));
 		});
-
 
 		return res;
 	}
 
-	public Map getLangsMapSortedByNumOfProgs() {
+	public Map<String, List<String>> getLangsMapSortedByNumOfProgs() {
 		return sorted(map, (a, b) -> b.getValue().size() - a.getValue().size());
 	}
 
-	public Map getProgsMapSortedByNumOfLangs() {
+	public Map<String, List<String>> getProgsMapSortedByNumOfLangs() {
 		return sorted(getProgsMap(), (a, b) -> {
 			int r = b.getValue().size() - a.getValue().size();
 			return (r != 0) ? r :  a.getKey().compareTo(b.getKey());
@@ -49,29 +46,15 @@ public class ProgLang {
 	}
 
 	public Map getProgsMapForNumOfLangsGreaterThan(int n) {
-		return sorted((Map<String, List<String>>)filtered(getProgsMap(), e -> e.getValue().size() > n), (a,b) -> {
-
-			List<String> aL = a.getValue();
-			List<String> bL = b.getValue();
-
-			for(int z = 0; z < aL.size(); z++){
-				int res = aL.get(z).compareTo(bL.get(z));
-
-				if(res != 0){
-					return res;
-				}
-			}
-
-			return aL.size() - bL.size();
-		});
+		return filtered(getProgsMap(), e -> e.getValue().size() > n);
 	}
 
-	private <K, V> Map sorted(Map<K, V> m, Comparator<Map.Entry<K, V>> f){
-		return m.entrySet().stream().sorted(f).collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue(), (previous, current) -> previous, LinkedHashMap::new));
+	private <K, V> Map<K, V> sorted(Map<K, V> m, Comparator<Map.Entry<K, V>> f){
+		return m.entrySet().stream().sorted(f).collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue(), (p, c) -> p, LinkedHashMap::new));
 	}
 
-	private <K, V> Map filtered(Map<K, V> m, Predicate<Map.Entry<K,V>> f){
-		return m.entrySet().stream().filter(f).collect(Collectors.toMap(map -> map.getKey(), map -> map.getValue()));
+	private <K, V> Map<K, V> filtered(Map<K, V> m, Predicate<Map.Entry<K,V>> f){
+		return m.entrySet().stream().filter(f).collect(Collectors.toMap(map -> map.getKey(), map -> map.getValue(), (p, c) -> p, LinkedHashMap::new));
 	}
 
 
