@@ -13,8 +13,9 @@ public class Futil {
 
 
 		try{
-			File file = new File(resultFileName);
-			file.createNewFile();
+			if(!Files.exists(result)){
+				Files.createFile(result);
+			}
 
 			BufferedWriter bW = Files.newBufferedWriter(result, Charset.forName("UTF-8"));
 
