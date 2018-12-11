@@ -32,7 +32,7 @@ class XCall implements Callable<Integer> {
 
 			Main.getFrame().log(String.format("Thread %d (limit = %d): %d, sum = %d", id, limit, num, sum));
 
-			Thread.sleep((int) Math.random() * 2000);
+			Thread.sleep(100 + (int) (Math.random() * 2000));
 		}
 
 

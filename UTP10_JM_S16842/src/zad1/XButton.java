@@ -24,7 +24,6 @@ class XButton extends JButton implements ActionListener, KeyListener {
 		this.id = ++idCounter;
 		setText("T" + id);
 
-
 		addKeyListener(this);
 		addActionListener(this);
 	}
