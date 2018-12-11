@@ -82,13 +82,9 @@ class XButton extends JButton implements ActionListener, KeyListener {
 		setText("T" + id + " done!");
 		setEnabled(false);
 
-		JPanel panel = (JPanel) getParent();
+		Executors.newScheduledThreadPool(1).schedule(() -> Main.getFrame().removeXButton(this), 2, TimeUnit.SECONDS);
 
-		Executors.newScheduledThreadPool(1).schedule(() -> panel.remove(this), 3, TimeUnit.SECONDS);
-
-		panel.updateUI();
-
-		Main.area.append(String.format("Thread %d: Done \n", id));
+		Main.getFrame().log(String.format("Thread %d: Done", id));
 	}
 
 	public void cancelTask(){
@@ -96,7 +92,7 @@ class XButton extends JButton implements ActionListener, KeyListener {
 		setEnabled(false);
 		setText("T" + id + " cancelled!");
 
-		Main.area.append(String.format("Thread %d: Cancelled \n", id));
+		Main.getFrame().log(String.format("Thread %d: Cancelled", id));
 	}
 
 	public void stopTask(){

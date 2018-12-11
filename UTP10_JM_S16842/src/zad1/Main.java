@@ -3,69 +3,105 @@ package zad1;
 import javax.swing.*;
 import javax.swing.text.DefaultCaret;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
-import java.util.concurrent.*;
+import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 
-public class Main {
+public class Main extends JFrame{
 
-	static ArrayList<XButton> taskButtons = new ArrayList();
+	private static Main frame;
 
-	static JTextArea area = new JTextArea();
+	private ArrayList<XButton> taskButtons = new ArrayList();
 
+	private JTextArea area;
+	private JPanel panel;
 
-	public static void main(String[] args){
-		SwingUtilities.invokeLater(() -> {
-			JFrame f = new JFrame("Thread pool");
-				f.setSize(new Dimension(350, 500));
+	public Main(){
+		super("Thread pool");
+		setSize(new Dimension(350, 500));
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setVisible(true);
 
+		addWindowListener(new WindowAdapter(){
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
 
-			DefaultCaret caret = (DefaultCaret) area.getCaret();
-			caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
-
-			f.add(new JScrollPane(area), BorderLayout.CENTER);
+		area = new JTextArea();
 			area.setEnabled(false);
+			((DefaultCaret) area.getCaret()).setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+
+		add(new JScrollPane(area), BorderLayout.CENTER);
 
 
-			JPanel panel = new JPanel(new GridLayout(1, 0));
-			f.add(panel, BorderLayout.PAGE_END);
-
-			JPanel menu = new JPanel(new GridLayout(2, 0));
-
-			f.add(menu, BorderLayout.PAGE_START);
+		panel = new JPanel(new GridLayout(1, 0));
+			add(panel, BorderLayout.PAGE_END);
 
 
-			JButton newTask = new JButton("Create New");
+		JButton newTask = new JButton("Create New");
+			newTask.addActionListener(a -> createXButton());
 
-				newTask.addActionListener(a -> {
-						XButton b = new XButton();
+		JButton stop = new JButton("Stop");
+			stop.addActionListener(a -> forEachTask(e -> e.stopTask()));
 
-						panel.add(b);
-						panel.updateUI();
-						taskButtons.add(b);
-				});
-
-				JButton stop = new JButton("Stop");
-
-				stop.addActionListener(a ->{
-					taskButtons.forEach(e -> {
-						e.stopTask();
-					});
-				});
-
+		JPanel menu = new JPanel(new GridLayout(2, 0));
 			menu.add(newTask);
 			menu.add(stop);
 
+		add(menu, BorderLayout.PAGE_START);
 
-			f.setLocationRelativeTo(null);
-			f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			f.setVisible(true);
+	}
 
-		});
+	public void log(String text){
+		area.append(text + "\n");
+	}
+
+	public void forEachTask(Consumer<XButton> c){
+		taskButtons.forEach(c);
+	}
+
+	public XButton find(Predicate<XButton> p) throws Exception{
+		Optional<XButton> b = taskButtons.stream().filter(p).findFirst();
+
+		if(b.isPresent()){
+			return b.get();
+		}
+
+		throw new Exception("Not found");
+	}
+
+	private XButton createXButton(){
+		XButton b = new XButton();
+
+		panel.add(b);
+		panel.updateUI();
+		taskButtons.add(b);
+
+		return b;
+	}
+
+	public void removeXButton(XButton b){
+		panel.remove(b);
+		panel.updateUI();
+		taskButtons.remove(b);
+	}
+
+	public static Main getFrame(){
+		if(frame == null){
+			frame = new Main();
+		}
+
+		return frame;
+	}
+
+	public static void main(String[] args){
+		SwingUtilities.invokeLater(() -> getFrame());
 	}
 }
 

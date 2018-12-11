@@ -30,9 +30,9 @@ class XCall implements Callable<Integer> {
 
 			sum += num;
 
-			Main.area.append(String.format("Thread %d (limit = %d): %d, sum = %d \n", id, limit, num, sum));
+			Main.getFrame().log(String.format("Thread %d (limit = %d): %d, sum = %d", id, limit, num, sum));
 
-			Thread.sleep(1000);
+			Thread.sleep((int) Math.random() * 2000);
 		}
 
 

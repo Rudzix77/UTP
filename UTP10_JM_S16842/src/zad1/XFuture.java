@@ -18,10 +18,10 @@ class XFuture extends FutureTask {
 		super.done();
 
 		if(!isCancelled()){
-			XButton b = Main.taskButtons.stream().filter(e -> e.getId() == id).findFirst().orElse(null);
-
-			if (b != null) {
-				b.doneTask();
+			try{
+				Main.getFrame().find(e -> e.getId() == id).doneTask();
+			}catch (Exception e){
+				System.err.println("Task not found");
 			}
 		}
 
