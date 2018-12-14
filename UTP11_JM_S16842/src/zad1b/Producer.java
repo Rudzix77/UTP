@@ -1,6 +1,7 @@
 package zad1b;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class Producer extends Thread{
 
@@ -19,7 +20,7 @@ public class Producer extends Thread{
 		try {
 			while(true){
 				buffer.put(random.nextInt());
-				Thread.sleep(Math.abs(random.nextInt(2)) * 1000);
+				TimeUnit.SECONDS.sleep(Math.abs(random.nextInt(2)));
 			}
 
 		} catch (InterruptedException e) {

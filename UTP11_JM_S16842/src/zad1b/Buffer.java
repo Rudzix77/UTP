@@ -1,9 +1,6 @@
 package zad1b;
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 public class Buffer {
 
@@ -14,8 +11,17 @@ public class Buffer {
 
 		ExecutorService ex = Executors.newFixedThreadPool(2);
 
-		ex.submit(new Producer(b));
-		ex.submit(new Consumer(b));
+		ex.execute(new Producer(b));
+		ex.execute(new Consumer(b));
+
+		ex.execute(() -> {
+			try {
+				TimeUnit.SECONDS.sleep(15);
+				System.exit(0);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		});
 	}
 	
 	public Buffer(int capacity){
@@ -26,11 +32,14 @@ public class Buffer {
 
 	public void put(int num) {
 
-		if(!queue.add(num)) {
-			System.out.println(Thread.currentThread().getName() + " : Buffer is full");
-		}else{
+		try{
+			queue.add(num);
+			
 			System.out.printf("%s added %d%n", Thread.currentThread().getName(), num);
+		}catch (IllegalStateException e){
+			System.out.println(Thread.currentThread().getName() + " : Buffer is full");
 		}
+
 	}
 
 	public void get() {

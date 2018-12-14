@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -19,6 +20,15 @@ public class Buffer {
 
 		ex.submit(new Producer(b));
 		ex.submit(new Consumer(b));
+
+		ex.execute(() -> {
+			try {
+				TimeUnit.SECONDS.sleep(15);
+				System.exit(0);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		});
 	}
 	
 	public Buffer(int capacity){
