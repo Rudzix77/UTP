@@ -1,4 +1,4 @@
-package zad1b;
+package zad1.a;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;

@@ -1,4 +1,4 @@
-package zad1a;
+package zad1.a;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -16,7 +16,7 @@ public class Buffer {
 
 		Buffer b = new Buffer(3);
 
-		ExecutorService ex = Executors.newFixedThreadPool(2);
+		ExecutorService ex = Executors.newCachedThreadPool();
 
 		ex.submit(new Producer(b));
 		ex.submit(new Consumer(b));

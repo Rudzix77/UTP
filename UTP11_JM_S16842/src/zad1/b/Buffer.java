@@ -1,4 +1,4 @@
-package zad1b;
+package zad1.b;
 
 import java.util.concurrent.*;
 
@@ -9,7 +9,7 @@ public class Buffer {
 
 		Buffer b = new Buffer(3);
 
-		ExecutorService ex = Executors.newFixedThreadPool(2);
+		ExecutorService ex = Executors.newCachedThreadPool();
 
 		ex.execute(new Producer(b));
 		ex.execute(new Consumer(b));
@@ -34,7 +34,7 @@ public class Buffer {
 
 		try{
 			queue.add(num);
-			
+
 			System.out.printf("%s added %d%n", Thread.currentThread().getName(), num);
 		}catch (IllegalStateException e){
 			System.out.println(Thread.currentThread().getName() + " : Buffer is full");

@@ -1,25 +1,25 @@
-package zad1a;
+package zad1.a;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class Producer extends Thread{
+public class Consumer extends Thread{
 
 	Buffer buffer;
 	final Random random = new Random();
 
-	public Producer(Buffer buffer) {
+	public Consumer(Buffer buffer) {
 		this.buffer = buffer;
 	}
 
 	@Override
 	public void run() {
 
-		Thread.currentThread().setName("Producer");
+		Thread.currentThread().setName("Consumer");
 
 		try {
 			while(true){
-				buffer.put(random.nextInt());
+				buffer.get();
 				TimeUnit.SECONDS.sleep(Math.abs(random.nextInt(2)));
 			}
 
