@@ -1,0 +1,2 @@
+public class Ins1 {
+}

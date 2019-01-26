@@ -1,0 +1,2 @@
+public class Cre1 {
+}
